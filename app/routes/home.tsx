@@ -1,13 +1,11 @@
-import HomePage from "~/HomePage/HomePage";
-import type { Route } from "./+types/home";
-
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
-  ];
-}
+import Banner from "~/components/banner/Banner";
+import Service from "~/components/service/Service";
 
 export default function Home() {
-  return <HomePage />;
+  return (
+    <main className="flex flex-col gap-[100px] relative">
+      <Banner />
+      <Service />
+    </main>
+  );
 }

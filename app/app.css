@@ -8,63 +8,62 @@
   --animate-compass3: compass3 14s infinite ease-in-out;
   --animate-compass4: compass4 16s infinite ease-in-out;
   --animate-compass5: compass5 18s infinite ease-in-out;
-
-  @keyframes compass1 {
-    0% {
-      transform: rotate(15deg);
-    }
-    50% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(15deg);
-    }
+}
+/* @keyframes compass1 {
+  0% {
+    transform: rotate(15deg);
   }
-  @keyframes compass2 {
-    0% {
-      transform: rotate(0deg);
-    }
-    50% {
-      transform: rotate(15deg);
-    }
-    100% {
-      transform: rotate(0deg);
-    }
+  50% {
+    transform: rotate(0deg);
   }
-  @keyframes compass3 {
-    0% {
-      transform: rotate(10deg);
-    }
-    50% {
-      transform: rotate(-5deg);
-    }
-    100% {
-      transform: rotate(10deg);
-    }
-  }
-  @keyframes compass4 {
-    0% {
-      transform: rotate(5deg);
-    }
-    50% {
-      transform: rotate(15deg);
-    }
-    100% {
-      transform: rotate(5deg);
-    }
-  }
-  @keyframes compass5 {
-    0% {
-      transform: rotate(-20deg);
-    }
-    50% {
-      transform: rotate(5deg);
-    }
-    100% {
-      transform: rotate(-20deg);
-    }
+  100% {
+    transform: rotate(15deg);
   }
 }
+@keyframes compass2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes compass3 {
+  0% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(10deg);
+  }
+}
+@keyframes compass4 {
+  0% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(5deg);
+  }
+}
+@keyframes compass5 {
+  0% {
+    transform: rotate(-20deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(-20deg);
+  }
+} */
 
 html,
 body {
