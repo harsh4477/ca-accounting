@@ -11,7 +11,7 @@ const Service = () => {
           Our Services
         </h6>
       </div>
-      <div className="my-24 grid grid-cols-3 gap-10 items-start">
+      <div className="mt-16 grid grid-cols-3 gap-10 items-start">
         <div className="p-5 flex flex-col gap-3 relative">
           <div className="relative flex mb-5">
             <span className="relative w-20 h-20 rounded-full border-2 flex items-center justify-center text-3xl text-green-500 ">

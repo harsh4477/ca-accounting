@@ -3,12 +3,16 @@
 
 @theme {
   --color-cmColor: red;
-  --animate-compass1: compass1 12s infinite ease-in-out;
+  --animate-slide: slide 35s linear infinite;
+  --animate-spin-slow: spin 15s linear infinite;
+  --animate-spin-slower: spin 20s linear infinite;
+  --animate-spin-slowest: spin 18s linear infinite;
+}
+/* --animate-compass1: compass1 12s infinite ease-in-out;
   --animate-compass2: compass2 10s infinite ease-in-out;
   --animate-compass3: compass3 14s infinite ease-in-out;
   --animate-compass4: compass4 16s infinite ease-in-out;
-  --animate-compass5: compass5 18s infinite ease-in-out;
-}
+  --animate-compass5: compass5 18s infinite ease-in-out; */
 /* @keyframes compass1 {
   0% {
     transform: rotate(15deg);
@@ -64,6 +68,48 @@
     transform: rotate(-20deg);
   }
 } */
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee2 {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee2 {
+  animation: marquee2 25s linear infinite;
+  will-change: transform;
+}
+
+/* Pause animation on hover */
+.animate-marquee:hover,
+.animate-marquee2:hover {
+  animation-play-state: paused;
+}
 
 html,
 body {
