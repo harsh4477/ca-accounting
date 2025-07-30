@@ -2,7 +2,7 @@ import React from "react";
 
 const Service = () => {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto" id="services">
       <div className="flex flex-col items-center relative">
         <h2 className="text-[120px] leading-[140px] font-extrabold tracking-wider text-shadow-[0_5px_7px_#0000002b] text-white">
           Our Services

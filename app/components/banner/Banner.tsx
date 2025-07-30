@@ -3,7 +3,7 @@ import Header from "../header/Header";
 
 const Banner = () => {
   return (
-    <div className="relative h-[800px]">
+    <div className="relative h-[800px] banner-section" id="home">
       <Header />
       <div className="absolute top-0 left-0 w-full">
         <video autoPlay muted loop className="object-cover w-full h-[800px]">

@@ -17,7 +17,7 @@ const LOGOS = [
 
 export default function Clients() {
   return (
-    <div className="w-full bg-white overflow-hidden">
+    <div className="w-full bg-white overflow-hidden" id="clients">
       <div className="max-w-[1440px] mx-auto relative">
         {/* Left Gradient Overlay */}
         <div
