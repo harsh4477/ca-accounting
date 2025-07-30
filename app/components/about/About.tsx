@@ -32,7 +32,7 @@ const About = () => {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-16">
+    <div className="container mx-auto" id="about">
       {/* Header Section */}
       <div className="flex flex-col items-center relative mb-16">
         <h2 className="text-[120px] leading-[140px] font-extrabold tracking-wider text-shadow-[0_5px_7px_#0000002b] text-white">

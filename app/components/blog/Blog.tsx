@@ -59,7 +59,7 @@ const Blog = () => {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-16">
+    <div className="container mx-auto">
       {/* Header Section */}
       <div className="flex flex-col items-center relative mb-16">
         <h2 className="text-[120px] leading-[140px] font-extrabold tracking-wider text-shadow-[0_5px_7px_#0000002b] text-white">
@@ -71,13 +71,13 @@ const Blog = () => {
       </div>
 
       {/* Featured Post */}
-      <div className="bg-white rounded-2xl overflow-hidden shadow-xl mb-16">
+      {/* <div className="bg-white rounded-2xl overflow-hidden shadow-xl mb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2">
-          <div className="h-[400px] lg:h-full">
+          <div className="h-[800px]">
             <img
               src="/images/woman-5.png"
               alt="Featured Post"
-              className="w-full h-full object-cover"
+              className="object-contain w-full h-full"
             />
           </div>
           <div className="p-8 lg:p-12 flex flex-col justify-center">
@@ -102,7 +102,7 @@ const Blog = () => {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Blog Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -115,7 +115,7 @@ const Blog = () => {
               <img
                 src={post.image}
                 alt={post.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
             </div>
             <div className="p-6">
@@ -123,7 +123,7 @@ const Blog = () => {
                 <span className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm">
                   {post.category}
                 </span>
-                <span className="text-sm text-gray-500">{post.readTime}</span>
+                {/* <span className="text-sm text-gray-500">{post.readTime}</span> */}
               </div>
               <h4 className="text-xl font-semibold text-gray-800 mb-3">
                 {post.title}

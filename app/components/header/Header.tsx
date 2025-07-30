@@ -9,13 +9,13 @@ const Header = () => {
           logo
         </Link>
         <div className="flex items-center gap-6">
-          <Link className=" text-lg font-medium" to={""}>
+          <Link className=" text-lg font-medium" to={"#home"}>
             Home
           </Link>
-          <Link className=" text-lg font-medium" to={""}>
+          <Link className=" text-lg font-medium" to={"#about"}>
             About
           </Link>
-          <Link className=" text-lg font-medium" to={""}>
+          <Link className=" text-lg font-medium" to={"#contact"}>
             Contact
           </Link>
         </div>

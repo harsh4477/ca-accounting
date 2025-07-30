@@ -8,7 +8,7 @@ import Team from "~/components/team/Team";
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-[100px] relative">
+    <main className="flex flex-col gap-[70px] pb-[70px] relative transition-all duration-300">
       <Banner />
       <Clients />
       <About />
