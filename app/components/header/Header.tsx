@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router";
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const bannerSection = document.querySelector(".banner-section");
+      if (bannerSection) {
+        const bannerBottom = bannerSection.getBoundingClientRect().bottom;
+        setIsScrolled(bannerBottom <= 0);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   const handleSmoothScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,
     targetId: string
@@ -17,8 +31,12 @@ const Header = () => {
   };
 
   return (
-    <header className="relative z-50">
-      <nav className="container mx-auto flex items-center justify-between py-8 px-4 text-white">
+    <header className="relative z-50 sticky top-0">
+      <nav
+        className={`container mx-auto flex items-center justify-between py-8 px-4 text-white transition-all duration-300 ${
+          isScrolled ? "bg-black/40 backdrop-blur-sm" : ""
+        }`}
+      >
         <Link className="text-2xl font-medium" to={""}>
           logo
         </Link>
