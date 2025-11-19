@@ -1,7 +1,7 @@
-import { isRouteErrorResponse, Links, Meta, Outlet } from "react-router";
-
+import { isRouteErrorResponse, Links, Meta, Outlet, useLocation } from "react-router";
 import type { Route } from "./+types/root";
 import Header from "./components/header/Header";
+import { AuthProvider } from "./contexts/auth-context";
 import "./app.css";
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -22,7 +22,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <AuthProvider>
+      <Outlet />
+    </AuthProvider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
