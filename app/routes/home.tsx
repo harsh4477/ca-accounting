@@ -13,7 +13,7 @@ export default function Home() {
       <Header />
       <main className="flex flex-col gap-[70px] pb-[70px] relative transition-all duration-300 -mt-24">
         <Banner />
-        <Clients />
+        {/* <Clients /> */}
         <About />
         <Service />
         <Team />

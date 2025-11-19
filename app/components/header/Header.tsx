@@ -4,18 +4,17 @@ import { Link } from "react-router";
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
+  // 👉 Scroll detect
   useEffect(() => {
     const handleScroll = () => {
-      const bannerSection = document.querySelector(".banner-section");
-      if (bannerSection) {
-        const bannerBottom = bannerSection.getBoundingClientRect().bottom;
-        setIsScrolled(bannerBottom <= 0);
-      }
+      setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // 👉 Smooth scroll
   const handleSmoothScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,
     targetId: string
@@ -23,31 +22,26 @@ const Header = () => {
     e.preventDefault();
     const element = document.getElementById(targetId);
     if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
   return (
-    <header className="relative z-50 sticky top-0">
+    <header
+      className={`z-50 sticky top-0 transition-all duration-300 ${
+        isScrolled ? "bg-white shadow-md" : "bg-transparent"
+      }`}
+    >
       <nav
-        className={`container mx-auto flex items-center justify-between py-8 px-4 text-white transition-all duration-300 ${
-          isScrolled ? "bg-black/40 backdrop-blur-sm" : ""
+        className={`container mx-auto flex items-center justify-between py-8 px-4 ${
+          isScrolled ? "text-gray-900" : "text-white"
         }`}
       >
         <Link className="text-2xl font-medium" to={""}>
           logo
         </Link>
+
         <div className="flex items-center gap-6">
-          {/* <a
-            href="#home"
-            className="text-lg font-medium"
-            onClick={(e) => handleSmoothScroll(e, "home")}
-          >
-            Home
-          </a> */}
           <a
             href="#about"
             className="text-lg font-medium"
@@ -55,6 +49,7 @@ const Header = () => {
           >
             About
           </a>
+
           <a
             href="#services"
             className="text-lg font-medium"
@@ -62,6 +57,7 @@ const Header = () => {
           >
             Services
           </a>
+
           <a
             href="#team"
             className="text-lg font-medium"
@@ -69,6 +65,7 @@ const Header = () => {
           >
             Team
           </a>
+
           <a
             href="#blog"
             className="text-lg font-medium"
@@ -76,6 +73,7 @@ const Header = () => {
           >
             Blog
           </a>
+
           <a
             href="#contact"
             className="text-lg font-medium"

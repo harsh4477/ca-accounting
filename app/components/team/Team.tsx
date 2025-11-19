@@ -5,7 +5,7 @@ const Team = () => {
     {
       name: "Sarah Johnson",
       role: "Managing Director",
-      image: "/images/woman-3.png",
+      image: "https://picsum.photos/200",
       description:
         "15+ years of experience in corporate accounting and tax strategy.",
       expertise: ["Tax Planning", "Business Strategy", "Financial Analysis"],
@@ -13,21 +13,21 @@ const Team = () => {
     {
       name: "Michael Chen",
       role: "Tax Director",
-      image: "/images/woman-5.png",
+      image: "https://picsum.photos/200",
       description: "Expert in international tax law and corporate structuring.",
       expertise: ["International Tax", "Corporate Law", "Risk Management"],
     },
     {
       name: "Emily Davis",
       role: "Audit Manager",
-      image: "/images/woman-3.png",
+      image: "https://picsum.photos/200",
       description: "Specialized in financial audits and compliance consulting.",
       expertise: ["Auditing", "Compliance", "Internal Controls"],
     },
     {
       name: "David Wilson",
       role: "Financial Advisor",
-      image: "/images/woman-5.png",
+      image: "https://picsum.photos/200",
       description:
         "Dedicated to helping clients achieve their financial goals.",
       expertise: [
@@ -39,7 +39,7 @@ const Team = () => {
     {
       name: "Lisa Thompson",
       role: "Bookkeeping Manager",
-      image: "/images/woman-3.png",
+      image: "https://picsum.photos/200",
       description:
         "Expert in modern accounting software and bookkeeping practices.",
       expertise: ["Bookkeeping", "QuickBooks", "Financial Reporting"],
@@ -47,7 +47,7 @@ const Team = () => {
     {
       name: "James Rodriguez",
       role: "Tax Consultant",
-      image: "/images/woman-5.png",
+      image: "https://picsum.photos/200",
       description: "Specializes in personal and small business tax planning.",
       expertise: ["Tax Preparation", "Tax Planning", "Small Business Advisory"],
     },
@@ -84,7 +84,9 @@ const Team = () => {
                 {member.name}
               </h4>
               <p className="text-green-700 font-medium mb-3">{member.role}</p>
-              <p className="text-gray-600 mb-4">{member.description}</p>
+              <p className="text-gray-600 mb-4 h-[48px] overflow-hidden text-ellipsis line-clamp-2">
+                {member.description}
+              </p>
               <div className="flex flex-wrap gap-2">
                 {member.expertise.map((skill, idx) => (
                   <span
