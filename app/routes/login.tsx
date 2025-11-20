@@ -22,7 +22,6 @@ export default function Login() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError('');
-    alert("hgjkj")
     
     if (!email || !password) {
       setError('Email and password are required');
@@ -40,7 +39,6 @@ export default function Login() {
   };
 
   const useTestCredentials = (testUser: TestUser) => {
-    alert("fjkfgj")
     setEmail(testUser.email);
     setPassword(testUser.password);
   };

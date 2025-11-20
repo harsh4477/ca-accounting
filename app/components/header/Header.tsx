@@ -33,7 +33,7 @@ const Header = () => {
       }`}
     >
       <nav
-        className={`container mx-auto flex items-center justify-between py-8 px-4 ${
+        className={`container mx-auto flex items-center justify-between py-6 px-4 ${
           isScrolled ? "text-gray-900" : "text-white"
         }`}
       >

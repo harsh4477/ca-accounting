@@ -318,7 +318,7 @@ Being prepared makes tax season less stressful and helps ensure you don't miss v
       {/* Modal */}
       {isModalOpen && selectedPost && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-[9999] flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/20 bg-opacity-50 z-[9999] flex items-center justify-center p-4 backdrop-blur-xs"
           onClick={closeModal}
         >
           <div

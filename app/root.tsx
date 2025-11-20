@@ -1,4 +1,4 @@
-import { isRouteErrorResponse, Links, Meta, Outlet, useLocation } from "react-router";
+import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration, useLocation } from "react-router";
 import type { Route } from "./+types/root";
 import Header from "./components/header/Header";
 import { AuthProvider } from "./contexts/auth-context";
@@ -16,6 +16,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <body>
         {/* <Header /> */}
         {children}
+        <ScrollRestoration />
+        <Scripts />
       </body>
     </html>
   );
