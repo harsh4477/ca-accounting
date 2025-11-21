@@ -119,3 +119,26 @@ body {
   font-family: "Roboto Condensed", sans-serif;
   scroll-behavior: smooth;
 }
+
+/* Global scrollbar styling */
+* {
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #16a34a rgba(15, 23, 42, 0.08);
+}
+
+/* Chrome, Edge, Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #16a34a; /* Tailwind green-600 */
+  border-radius: 9999px;
+  background-clip: content-box;
+}

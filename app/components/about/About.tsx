@@ -32,13 +32,13 @@ const About = () => {
   ];
 
   return (
-    <div className="container mx-auto" id="about">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8" id="about">
       {/* Header Section */}
       <div className="flex flex-col items-center relative mb-16">
-        <h2 className="text-[120px] leading-[140px] font-extrabold tracking-wider text-shadow-[0_5px_7px_#0000002b] text-white">
+        <h2 className="text-4xl sm:text-[70px] lg:text-[120px] leading-[48px] sm:leading-[120px] lg:leading-[140px] font-extrabold tracking-wider text-shadow-[0_5px_7px_#0000002b] text-white">
           About Us
         </h2>
-        <h6 className="text-[65px] font-semibold absolute -bottom-3 text-green-700">
+        <h6 className="text-3xl sm:text-5xl lg:text-[65px] font-semibold absolute bottom-1 sm:bottom-3 md:-bottom-3 text-green-700">
           Who We Are
         </h6>
       </div>
@@ -69,14 +69,14 @@ const About = () => {
           </div>
         </div>
         <div className="relative">
-          <div className="h-[800px] rounded-2xl overflow-hidden">
+          <div className="h-[360px] sm:h-[480px] md:h-[640px] lg:h-[800px] rounded-2xl overflow-hidden">
             <img
               src="/images/woman-5.png"
               alt="Professional Team"
               className="object-contain w-full h-full"
             />
           </div>
-          <div className="absolute -bottom-10 -right-10 bg-green-50 p-8 rounded-2xl shadow-lg max-w-sm">
+          <div className="bg-green-50 p-6 md:p-8 rounded-2xl shadow-lg max-w-sm w-full md:w-auto md:absolute md:-bottom-10 md:-right-10 mt-6 md:mt-0">
             <h4 className="text-2xl font-bold text-green-700 mb-4">
               Your Trusted Financial Partner
             </h4>

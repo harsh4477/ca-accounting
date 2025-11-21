@@ -2,17 +2,17 @@ import React from "react";
 
 const Service = () => {
   return (
-    <div className="container mx-auto" id="services">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8" id="services">
       <div className="flex flex-col items-center relative">
-        <h2 className="text-[120px] leading-[140px] font-extrabold tracking-wider text-shadow-[0_5px_7px_#0000002b] text-white">
+        <h2 className="text-4xl sm:text-[80px] lg:text-[120px] leading-tight sm:leading-[100px] lg:leading-[140px] font-extrabold tracking-wider text-shadow-[0_5px_7px_#0000002b] text-white">
           Our Services
         </h2>
-        <h6 className="text-[65px] font-semibold absolute -bottom-3 text-green-700">
+        <h6 className="text-3xl sm:text-[40px] lg:text-[65px] font-semibold absolute -bottom-3 text-green-700">
           Our Services
         </h6>
       </div>
-      <div className="mt-16 grid grid-cols-3 gap-10 items-start">
-        <div className="p-5 flex flex-col gap-3 relative">
+      <div className="mt-16 grid md:grid-cols-2 xl:grid-cols-3 gap-10 items-start">
+        <div className="p-5 flex flex-col gap-3 relative order-2 xl:order-1">
           <div className="relative flex mb-5">
             <span className="relative w-20 h-20 rounded-full border-2 flex items-center justify-center text-3xl text-green-500 ">
               01
@@ -41,7 +41,7 @@ const Service = () => {
             />
           </div>
         </div> */}
-        <div className="relative h-[350px] w-[350px] mt-[210px] mx-auto row-span-2">
+        <div className="relative h-[260px] w-[260px] sm:h-[300px] sm:w-[300px] lg:h-[350px] lg:w-[350px] mt-16 sm:mt-24 lg:mt-[210px] mx-auto row-span-2 order-1 xl:order-2">
           <span className="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-green-500 to-green-100 rounded-full z-10"></span>
           <div className="absolute bottom-0 left-0 h-1/2 w-full bg-transparent rounded-b-full z-10">
             <img
@@ -51,7 +51,7 @@ const Service = () => {
             />
           </div>
         </div>
-        <div className="p-5 flex flex-col gap-3 relative">
+        <div className="p-5 flex flex-col gap-3 relative order-3">
           <div className="relative flex mb-5">
             <span className="relative w-20 h-20 rounded-full border-2 flex items-center justify-center text-3xl text-green-500 ">
               02
@@ -67,7 +67,7 @@ const Service = () => {
             consectetur provident quibusdam obcaecati ex aperiam.
           </p>
         </div>
-        <div className="p-5 flex flex-col gap-3 relative">
+        <div className="p-5 flex flex-col gap-3 relative order-4">
           <div className="relative flex mb-5">
             <span className="relative w-20 h-20 rounded-full border-2 flex items-center justify-center text-3xl text-green-500 ">
               03
@@ -83,7 +83,7 @@ const Service = () => {
             consectetur provident quibusdam obcaecati ex aperiam.
           </p>
         </div>
-        <div className="p-5 flex flex-col gap-3 relative">
+        <div className="p-5 flex flex-col gap-3 relative order-5">
           <div className="relative flex mb-5">
             <span className="relative w-20 h-20 rounded-full border-2 flex items-center justify-center text-3xl text-green-500 ">
               04

@@ -54,13 +54,13 @@ const Team = () => {
   ];
 
   return (
-    <div className="container mx-auto" id="team">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8" id="team">
       {/* Header Section */}
       <div className="flex flex-col items-center relative mb-16">
-        <h2 className="text-[120px] leading-[140px] font-extrabold tracking-wider text-shadow-[0_5px_7px_#0000002b] text-white">
+        <h2 className="text-4xl sm:text-[80px] lg:text-[120px] leading-tight sm:leading-[100px] lg:leading-[140px] font-extrabold tracking-wider text-shadow-[0_5px_7px_#0000002b] text-white">
           Our Team
         </h2>
-        <h6 className="text-[65px] font-semibold absolute -bottom-3 text-green-700">
+        <h6 className="text-3xl sm:text-[40px] lg:text-[65px] font-semibold absolute -bottom-3 text-green-700">
           Meet The Experts
         </h6>
       </div>

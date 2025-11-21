@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 
 type BlogPost = {
   title: string;
@@ -14,6 +15,17 @@ type BlogPost = {
 const Blog = () => {
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (isModalOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [isModalOpen]);
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -223,19 +235,20 @@ Being prepared makes tax season less stressful and helps ensure you don't miss v
   ];
 
   return (
-    <div className="container mx-auto" id="blog">
-      {/* Header Section */}
-      <div className="flex flex-col items-center relative mb-16">
-        <h2 className="text-[120px] leading-[140px] font-extrabold tracking-wider text-shadow-[0_5px_7px_#0000002b] text-white">
-          Our Blog
-        </h2>
-        <h6 className="text-[65px] font-semibold absolute -bottom-3 text-green-700">
-          Latest Insights
-        </h6>
-      </div>
+    <>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8" id="blog">
+        {/* Header Section */}
+        <div className="flex flex-col items-center relative mb-16">
+          <h2 className="text-4xl sm:text-[80px] lg:text-[120px] leading-tight sm:leading-[100px] lg:leading-[140px] font-extrabold tracking-wider text-shadow-[0_5px_7px_#0000002b] text-white">
+            Our Blog
+          </h2>
+          <h6 className="text-3xl sm:text-[40px] lg:text-[65px] font-semibold absolute -bottom-3 text-green-700">
+            Latest Insights
+          </h6>
+        </div>
 
-      {/* Featured Post */}
-      {/* <div className="bg-white rounded-2xl overflow-hidden shadow-xl mb-16">
+        {/* Featured Post */}
+        {/* <div className="bg-white rounded-2xl overflow-hidden shadow-xl mb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2">
           <div className="h-[800px]">
             <img
@@ -268,143 +281,143 @@ Being prepared makes tax season less stressful and helps ensure you don't miss v
         </div>
       </div> */}
 
-      {/* Blog Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {blogPosts.map((post, index) => (
-          <div
-            key={index}
-            className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
-          >
-            <div className="h-48 overflow-hidden">
-              <img
-                src={post.image}
-                alt={post.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="p-6">
-              <div className="flex items-center justify-between mb-4">
-                <span className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm">
-                  {post.category}
-                </span>
-                {/* <span className="text-sm text-gray-500">{post.readTime}</span> */}
-              </div>
-              <h4 className="text-xl font-semibold text-gray-800 mb-3 line-clamp-1">
-                {post.title}
-              </h4>
-              <p className="text-gray-600 mb-4 h-[72px] overflow-hidden text-ellipsis line-clamp-3">
-                {post.excerpt}
-              </p>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-500">{post.date}</span>
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    setSelectedPost(post);
-                    setIsModalOpen(true);
-                  }}
-                  className="text-green-600 hover:text-green-700 font-semibold cursor-pointer"
-                >
-                  Read More →
-                </button>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Modal */}
-      {isModalOpen && selectedPost && (
-        <div
-          className="fixed inset-0 bg-black/20 bg-opacity-50 z-[9999] flex items-center justify-center p-4 backdrop-blur-xs"
-          onClick={closeModal}
-        >
-          <div
-            className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Modal Header */}
-            <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between z-10">
-              <span className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
-                {selectedPost.category}
-              </span>
-              <button
-                type="button"
-                onClick={closeModal}
-                className="text-gray-500 hover:text-gray-700 text-2xl font-bold w-8 h-8 flex items-center justify-center"
-                aria-label="Close modal"
-              >
-                ×
-              </button>
-            </div>
-
-            {/* Modal Content */}
-            <div className="p-6 lg:p-8">
-              {/* Image */}
-              <div className="mb-6 rounded-lg overflow-hidden">
+        {/* Blog Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {blogPosts.map((post, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
+            >
+              <div className="h-48 overflow-hidden">
                 <img
-                  src={selectedPost.image}
-                  alt={selectedPost.title}
-                  className="w-full h-64 object-cover"
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-full object-cover"
                 />
               </div>
-
-              {/* Title */}
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
-                {selectedPost.title}
-              </h2>
-
-              {/* Meta Information */}
-              <div className="flex items-center text-sm text-gray-500 mb-6 pb-6 border-b border-gray-200">
-                <span>{selectedPost.date}</span>
-                <span className="mx-2">•</span>
-                <span>{selectedPost.readTime}</span>
-              </div>
-
-              {/* Content */}
-              <div className="prose prose-lg max-w-none">
-                <div className="text-gray-700 leading-relaxed whitespace-pre-line">
-                  {selectedPost.content}
+              <div className="p-6">
+                <h4 className="text-xl font-semibold text-gray-800 mb-3 line-clamp-1">
+                  {post.title}
+                </h4>
+                <p className="text-gray-600 mb-4 h-[72px] overflow-hidden text-ellipsis line-clamp-3">
+                  {post.excerpt}
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-500">{post.date}</span>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setSelectedPost(post);
+                      setIsModalOpen(true);
+                    }}
+                    className="text-green-600 hover:text-green-700 font-semibold cursor-pointer"
+                  >
+                    Read More →
+                  </button>
                 </div>
               </div>
             </div>
+          ))}
+        </div>
 
-            {/* Modal Footer */}
-            <div className="sticky bottom-0 bg-gray-50 border-t border-gray-200 px-6 py-4 flex justify-end">
-              <button
-                type="button"
-                onClick={closeModal}
-                className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors duration-300"
-              >
-                Close
-              </button>
-            </div>
+
+
+        {/* Newsletter Section */}
+        <div className="mt-16 bg-green-50 rounded-2xl p-8 text-center">
+          <h3 className="text-2xl font-bold text-gray-800 mb-4">
+            Subscribe to Our Newsletter
+          </h3>
+          <p className="text-gray-600 mb-6">
+            Stay updated with our latest insights and expert advice
+          </p>
+          <div className="flex max-w-md mx-auto">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="flex-1 px-4 py-2 rounded-l-lg border-2 border-r-0 border-green-200 focus:outline-none focus:border-green-500"
+            />
+            <button className="bg-green-600 text-white px-6 py-2 rounded-r-lg hover:bg-green-700 transition-colors duration-300">
+              Subscribe
+            </button>
           </div>
         </div>
-      )}
-
-      {/* Newsletter Section */}
-      <div className="mt-16 bg-green-50 rounded-2xl p-8 text-center">
-        <h3 className="text-2xl font-bold text-gray-800 mb-4">
-          Subscribe to Our Newsletter
-        </h3>
-        <p className="text-gray-600 mb-6">
-          Stay updated with our latest insights and expert advice
-        </p>
-        <div className="flex max-w-md mx-auto">
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="flex-1 px-4 py-2 rounded-l-lg border-2 border-r-0 border-green-200 focus:outline-none focus:border-green-500"
-          />
-          <button className="bg-green-600 text-white px-6 py-2 rounded-r-lg hover:bg-green-700 transition-colors duration-300">
-            Subscribe
-          </button>
-        </div>
       </div>
-    </div>
+      {/* Modal */}
+      {isModalOpen && selectedPost &&
+        createPortal(
+          <div
+            className="fixed inset-0 bg-black/20 bg-opacity-50 z-[9999] flex items-center justify-center p-4 backdrop-blur-xs"
+            onClick={closeModal}
+          >
+            <div
+              className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between z-10">
+
+                <h3 className="text-xl lg:text-2xl font-bold text-gray-800">
+                  {selectedPost.title}
+                </h3>
+                <button
+                  type="button"
+                  onClick={closeModal}
+                  className="text-gray-500 hover:text-gray-700 text-2xl font-bold w-8 h-8 flex items-center justify-center cursor-pointer"
+                  aria-label="Close modal"
+                >
+                  <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Menu / Close_LG"> <path id="Vector" d="M21 21L12 12M12 12L3 3M12 12L21.0001 3M12 12L3 21.0001" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
+                </button>
+              </div>
+
+              {/* Modal Content */}
+              <div className="p-6 lg:p-8">
+                {/* Image */}
+                <div className="mb-6 rounded-lg overflow-hidden">
+                  <img
+                    src={selectedPost.image}
+                    alt={selectedPost.title}
+                    className="w-full h-64 object-cover"
+                  />
+                </div>
+
+                {/* Title */}
+                <h2 className="text-xl lg:text-2xl font-bold text-gray-800 mb-2">
+                  {selectedPost.title}
+                </h2>
+
+
+                {/* Meta Information */}
+                <div className="flex items-center text-sm text-gray-500 mb-6 pb-6 border-b border-gray-200">
+                  <span>{selectedPost.date}</span>
+                  <span className="mx-2">•</span>
+                  <span>{selectedPost.readTime}</span>
+                </div>
+
+                {/* Content */}
+                <div className="prose prose-lg max-w-none">
+                  <div className="text-gray-700 leading-relaxed whitespace-pre-line">
+                    {selectedPost.content}
+                  </div>
+                </div>
+              </div>
+
+              {/* Modal Footer */}
+              {/* <div className="sticky bottom-0 bg-gray-50 border-t border-gray-200 px-6 py-4 flex justify-end">
+                <button
+                  type="button"
+                  onClick={closeModal}
+                  className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors duration-300"
+                >
+                  Close
+                </button>
+              </div> */}
+            </div>
+          </div>,
+          document.body
+        )}
+    </>
   );
 };
 
