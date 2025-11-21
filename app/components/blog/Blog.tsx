@@ -236,9 +236,9 @@ Being prepared makes tax season less stressful and helps ensure you don't miss v
 
   return (
     <>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8" id="blog">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12" id="blog">
         {/* Header Section */}
-        <div className="flex flex-col items-center relative mb-16">
+        <div className="flex flex-col items-center relative mb-12">
           <h2 className="text-4xl sm:text-[80px] lg:text-[120px] leading-tight sm:leading-[100px] lg:leading-[140px] font-extrabold tracking-wider text-shadow-[0_5px_7px_#0000002b] text-white">
             Our Blog
           </h2>
@@ -320,28 +320,6 @@ Being prepared makes tax season less stressful and helps ensure you don't miss v
               </div>
             </div>
           ))}
-        </div>
-
-
-
-        {/* Newsletter Section */}
-        <div className="mt-16 bg-green-50 rounded-2xl p-8 text-center">
-          <h3 className="text-2xl font-bold text-gray-800 mb-4">
-            Subscribe to Our Newsletter
-          </h3>
-          <p className="text-gray-600 mb-6">
-            Stay updated with our latest insights and expert advice
-          </p>
-          <div className="flex max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-2 rounded-l-lg border-2 border-r-0 border-green-200 focus:outline-none focus:border-green-500"
-            />
-            <button className="bg-green-600 text-white px-6 py-2 rounded-r-lg hover:bg-green-700 transition-colors duration-300">
-              Subscribe
-            </button>
-          </div>
         </div>
       </div>
       {/* Modal */}
